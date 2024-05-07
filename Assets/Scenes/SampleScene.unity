@@ -672,7 +672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2936f962a311f12439c4ac6d8900c7f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heroTransform: {fileID: 1025733574}
+  targetTransform: {fileID: 1025733574}
   offset: {x: 0, y: 1.7, z: -10}
 --- !u!1 &940251348
 GameObject:

@@ -22,8 +22,7 @@ public class MoveHero : MonoBehaviour
 
     void FixedUpdate()
     {
-        rigidbody.velocity = new Vector2(hHeroMoving * speed, 0); //rigidbody.velocity.y);
-            //.transform.Translate(hHeroMoving * speed,0); 
+        rigidbody.velocity = new Vector2(hHeroMoving * speed, 0); 
            
     }
 }

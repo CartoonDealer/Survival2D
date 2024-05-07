@@ -4,24 +4,26 @@ using UnityEngine;
 
 public class MoveHero : MonoBehaviour
 {
-    Rigidbody2D body;
+    //[SerializeField] private Rigidbody2D rigidbody;
+    Rigidbody2D rigidbody;
+    private float hHeroMoving;
 
-    float horizontal;   
-
-    public float speed = 5.0f;
+    [SerializeField] private float speed = 5.0f;
 
     void Start()
     {
-        body = GetComponent<Rigidbody2D>();
+        rigidbody = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal"); 
+        hHeroMoving = Input.GetAxis("Horizontal"); //Input.GetAxisRaw("Horizontal"); 
     }
 
     void FixedUpdate()
     {
-        body.velocity = new Vector2(horizontal * speed, body.velocity.y);
+        rigidbody.velocity = new Vector2(hHeroMoving * speed, 0); //rigidbody.velocity.y);
+            //.transform.Translate(hHeroMoving * speed,0); 
+           
     }
 }

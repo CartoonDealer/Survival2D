@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform heroTransform;
-    public Vector3 offset;
+    [SerializeField] private Transform targetTransform;
+    [SerializeField] private Vector3 offset;
+
     private void LateUpdate()
     {
-        transform.position = heroTransform.position + offset;
+        transform.position = targetTransform.position + offset;
     }
 }

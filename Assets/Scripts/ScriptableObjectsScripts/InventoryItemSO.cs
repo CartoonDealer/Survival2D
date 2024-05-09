@@ -10,5 +10,6 @@ public class InventoryItemSO : ScriptableObject
     public Sprite sprite;
     public string itemName;
     public string hint;  // подсказку в дальнейшем лучше сделать отдельным классом
-    public uint price; 
+    public float price;
+    public Transform itemOwner;
 }

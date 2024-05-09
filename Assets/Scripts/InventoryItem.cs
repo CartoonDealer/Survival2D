@@ -1,12 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryItem : MonoBehaviour
 {
     [SerializeField] private InventoryItemSO inventoryItemSO;
+    [SerializeField] private Transform inventory;
 
-    //private IInventoryItemOwner inventoryItemOwner;
+
+    private void Awake()
+    {
+        transform.Find("useBtn").GetComponent<Button>().onClick.AddListener(() =>
+        {
+            if(inventoryItemSO.itemOwner == inventory) {
+                Debug.Log("Use");
+            }
+            else
+            {
+                inventoryItemSO.itemOwner.GetComponent<ShopProductLine>().SetActiveItem(inventoryItemSO);
+                Debug.Log("ryjgrf afiget");
+            }
+            // inventoryItemSO.itemOwner.InteractItem();
+        });
+    }
 
     public InventoryItemSO GetInventoryItemSO()
     {

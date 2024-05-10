@@ -4,11 +4,13 @@ using TMPro;
 using Unity.Burst.Intrinsics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopProductLine : ItemHolder
 {
     [Header("Ёто поле дл€ списка из которого магазин берЄт товары")]
     [SerializeField] private ItemListSO allShopItemList;
+    [SerializeField] private Player player;
 
     private List<InventoryItemSO> itemList;
     private List<int> itemIndexList;
@@ -18,18 +20,26 @@ public class ShopProductLine : ItemHolder
     [SerializeField] private Transform goodsParent;
 
     [SerializeField] private InventoryItemSO activeItem;
+
     [SerializeField] private TextMeshProUGUI itemLabel;
     [SerializeField] private TextMeshProUGUI itemDescription;
     [SerializeField] private TextMeshProUGUI itemPrice;
     [SerializeField] private Transform activeItemBorder;
+    [SerializeField] private Button buyButton;
 
     
 
     private void Awake()
     {
+
         itemList = new List<InventoryItemSO>();
         itemIndexList = new List<int>(allShopItemList.itemSOList.Count);
         OnAwake();
+
+        buyButton.GetComponent<Button>().onClick.AddListener(() =>
+        {
+            player.TryToBuy(activeItem);
+        });
     }
 
 

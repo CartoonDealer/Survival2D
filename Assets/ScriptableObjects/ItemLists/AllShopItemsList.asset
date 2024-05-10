@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: AllShopItemsList
   m_EditorClassIdentifier: 
   itemSOList:
-  - {fileID: 11400000, guid: 205436bbcfaa7c8479919c75b46cbcb3, type: 2}
-  - {fileID: 11400000, guid: 6f186e7aca8d2c74995bacc656284ff1, type: 2}
   - {fileID: 11400000, guid: bc7b15dc4fef4e64eac37c69a572b445, type: 2}
   - {fileID: 11400000, guid: 5f6137a641e57304db24eada593e08a2, type: 2}
+  - {fileID: 11400000, guid: 205436bbcfaa7c8479919c75b46cbcb3, type: 2}
   - {fileID: 11400000, guid: 06d99040a7212fc45bec6346f2b605f9, type: 2}
+  - {fileID: 11400000, guid: 6f186e7aca8d2c74995bacc656284ff1, type: 2}
   - {fileID: 11400000, guid: 84a8ebbd93ada9a4a917c58f9491547a, type: 2}

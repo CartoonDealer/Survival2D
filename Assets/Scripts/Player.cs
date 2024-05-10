@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private float Money { get; set; }
+    public float Money { get; set; }
     private float Hungry { get; set; }
     private uint Morale { get; set; }
     private float Cleaness { get; set; }

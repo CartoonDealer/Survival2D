@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a48c547198e03d4d88832d332451118, type: 3}
-  m_Name: Wok
+  m_Name: Dango
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4142587535214070596, guid: e03e195a90afa04428e584668c7bae56, type: 3}
-  sprite: {fileID: 21300000, guid: 5c783c3bbbd1ca247a4a7e656d88d02e, type: 3}
-  itemName: "\u041B\u0430\u043F\u0448\u0430"
-  hint: "\u0412\u043E\u0441\u043F\u043E\u043B\u043D\u044F\u0435\u0442 31 \u0441\u044B\u0442\u043E\u0441\u0442\u0438"
-  price: 3.1
+  prefab: {fileID: 4142587535214070596, guid: 10df75fd2960b564bb63970d9bf5a5da, type: 3}
+  sprite: {fileID: 21300000, guid: b99f5a06de73eec44835c169d546372b, type: 3}
+  itemName: "\u0414\u0430\u043D\u0433\u043E"
+  hint: "\u0412\u043E\u0441\u043F\u043E\u043B\u043D\u044F\u0435\u0442 19 \u0441\u044B\u0442\u043E\u0441\u0442\u0438 "
+  price: 1.9
   itemOwner: {fileID: 0}

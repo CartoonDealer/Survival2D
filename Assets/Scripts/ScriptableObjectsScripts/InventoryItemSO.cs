@@ -11,5 +11,5 @@ public class InventoryItemSO : ScriptableObject
     public string itemName;
     public string hint;  // подсказку в дальнейшем лучше сделать отдельным классом
     public float price;
-    public Transform itemOwner;
+    public ItemHolder itemOwner;
 }

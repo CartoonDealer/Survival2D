@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MoveHero : MonoBehaviour
 {
-    //[SerializeField] private Rigidbody2D rigidbody;
-    Rigidbody2D rigidbody;
+    [SerializeField] private Rigidbody2D rigidbody;
+    //Rigidbody2D rigidbody;
     private float hHeroMoving;
 
     [SerializeField] private float speed = 5.0f;

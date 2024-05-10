@@ -4,7 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ShopProductLine : MonoBehaviour
+public class ShopProductLine : ItemHolder
 {
     [Header("Это поле для списка из которого магазин берёт товары")]
     [SerializeField] private ItemListSO allShopItemList;
@@ -33,14 +33,17 @@ public class ShopProductLine : MonoBehaviour
     // тут мы выбираем из общего списка продаваемых товаров что выставить "на полку"
     private void OnAwake()
     {
-        //transformOffset = new Vector3(190, 0, 0);
         // тут выводим иконки товаров на полку
+        List<InventoryItemSO> uniqueItemList = new List<InventoryItemSO>();
+        uniqueItemList = allShopItemList.itemSOList;
         for (int i = 0; i <= 3; i++)
-        {  
-            itemList.Add(allShopItemList.itemSOList[UnityEngine.Random.Range(0, allShopItemList.itemSOList.Count)]);
-            //if (i>0) goodsTransformList[0].transform.position += transformOffset;
+        {
+            InventoryItemSO randomItem = uniqueItemList[UnityEngine.Random.Range(0, uniqueItemList.Count)];
+            itemList.Add(randomItem);  //allShopItemList.itemSOList[UnityEngine.Random.Range(0, allShopItemList.itemSOList.Count)]);
+            uniqueItemList.Remove(randomItem);
+            
             Instantiate(itemList[i].prefab, goodsTransformList[i].position, goodsTransformList[i].rotation, goodsParent);
-            itemList[i].itemOwner = transform;
+            itemList[i].itemOwner = this;
         }
         //задаём активный при открытии магазина товар
         SetActiveItem(itemList[0]);
@@ -53,10 +56,15 @@ public class ShopProductLine : MonoBehaviour
         //рамка иконки
         activeItemBorder.position = goodsTransformList[itemList.IndexOf(item)].position;
         //название товара
-        itemLabel.text = activeItem.name;
+        itemLabel.text = activeItem.itemName;
         //описание товара
         itemDescription.text = activeItem.hint;
         //стоимость товара
         itemPrice.text = activeItem.price.ToString();
+    }
+
+    public override void InteractItem(InventoryItemSO item)
+    {
+        SetActiveItem(item);
     }
 }

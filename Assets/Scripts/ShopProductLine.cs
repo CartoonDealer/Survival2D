@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Burst.Intrinsics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -10,9 +11,10 @@ public class ShopProductLine : ItemHolder
     [SerializeField] private ItemListSO allShopItemList;
 
     private List<InventoryItemSO> itemList;
+    private List<int> itemIndexList;
 
     [SerializeField] private List<Transform> goodsTransformList;
-    //private Vector3 transformOffset;
+   
     [SerializeField] private Transform goodsParent;
 
     [SerializeField] private InventoryItemSO activeItem;
@@ -26,6 +28,7 @@ public class ShopProductLine : ItemHolder
     private void Awake()
     {
         itemList = new List<InventoryItemSO>();
+        itemIndexList = new List<int>(allShopItemList.itemSOList.Count);
         OnAwake();
     }
 
@@ -33,14 +36,20 @@ public class ShopProductLine : ItemHolder
     // тут мы выбираем из общего списка продаваемых товаров что выставить "на полку"
     private void OnAwake()
     {
+        
         // тут выводим иконки товаров на полку
-        List<InventoryItemSO> uniqueItemList = new List<InventoryItemSO>();
-        uniqueItemList = allShopItemList.itemSOList;
+        
+        for (int i = 0; i < allShopItemList.itemSOList.Count; i++)
+        {
+            itemIndexList.Add(i);
+        }
+
         for (int i = 0; i <= 3; i++)
         {
-            InventoryItemSO randomItem = uniqueItemList[UnityEngine.Random.Range(0, uniqueItemList.Count)];
-            itemList.Add(randomItem);  //allShopItemList.itemSOList[UnityEngine.Random.Range(0, allShopItemList.itemSOList.Count)]);
-            uniqueItemList.Remove(randomItem);
+            int index = UnityEngine.Random.Range(0, itemIndexList.Count);
+
+            itemList.Add(allShopItemList.itemSOList[itemIndexList[index]]);  
+            itemIndexList.RemoveAt(index);
             
             Instantiate(itemList[i].prefab, goodsTransformList[i].position, goodsTransformList[i].rotation, goodsParent);
             itemList[i].itemOwner = this;

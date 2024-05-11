@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     private uint Morale { get; set; }
     private float Cleaness { get; set; }
 
-    [SerializeField] private ItemHolder inventory;
+    [SerializeField] private Inventory inventory;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
         if (CheckBalance(item.price))
         {
             Money -= item.price;
-            //inventory.AddItem(item);
+            inventory.AddItemToInventory(item);
         }
     }
 

@@ -13,7 +13,7 @@ public class ShopProductLine : ItemHolder
     [SerializeField] private Player player;
 
     private List<InventoryItemSO> itemList;
-    private List<int> itemIndexList;
+    private List<int> itemIndexList; //список индексов нужен чтобы выбирать уникальные предметы из списка allShopItemList
 
     [SerializeField] private List<Transform> goodsTransformList;
    
@@ -61,7 +61,7 @@ public class ShopProductLine : ItemHolder
             itemList.Add(allShopItemList.itemSOList[itemIndexList[index]]);  
             itemIndexList.RemoveAt(index);
             
-            Instantiate(itemList[i].prefab, goodsTransformList[i].position, goodsTransformList[i].rotation, goodsParent);
+            Instantiate(itemList[i].prefab, goodsTransformList[i].position, goodsTransformList[i].rotation, goodsTransformList[i]);
             itemList[i].itemOwner = this;
         }
         //задаём активный при открытии магазина товар
